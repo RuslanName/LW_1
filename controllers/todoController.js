@@ -2,7 +2,7 @@ const fs = require('fs/promises');
 const path = require('path');
 const { getTodos, addTodo, updateTodo, deleteTodo } = require('../services/todoService');
 
-async function renderHome(req, res) {
+const renderHome = async(req, res) => {
     try {
         const todos = await getTodos();
 
@@ -37,7 +37,7 @@ async function renderHome(req, res) {
     }
 }
 
-async function addTodoHandler(req, res) {
+const addTodoHandler = async(req, res) => {
     try {
         const { text } = req.body;
         if (!text) {
@@ -51,7 +51,7 @@ async function addTodoHandler(req, res) {
     }
 }
 
-async function updateTodoHandler(req, res) {
+const updateTodoHandler = async(req, res) => {
     try {
         const { id } = req.params;
         const { text } = req.body;
@@ -69,7 +69,7 @@ async function updateTodoHandler(req, res) {
     }
 }
 
-async function deleteTodoHandler(req, res) {
+const deleteTodoHandler = async (req, res) => {
     try {
         const { id } = req.params;
         await deleteTodo(id);

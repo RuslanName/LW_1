@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const editButtons = document.querySelectorAll('.edit-button');
     editButtons.forEach(button => {
         button.addEventListener('click', () => {
-            console.log('Кнопка "Изменить" нажата для ID:', button.getAttribute('data-id')); // Для отладки
+            console.log('Кнопка "Изменить" нажата для ID:', button.getAttribute('data-id'));
             const id = button.getAttribute('data-id');
             const text = button.getAttribute('data-text');
             showEditModal(id, text);
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deleteButtons = document.querySelectorAll('.delete-button');
     deleteButtons.forEach(button => {
         button.addEventListener('click', () => {
-            console.log('Кнопка "Удалить" нажата для ID:', button.getAttribute('data-id')); // Для отладки
+            console.log('Кнопка "Удалить" нажата для ID:', button.getAttribute('data-id'));
             const id = button.getAttribute('data-id');
             axios.delete(`/api/todos/${id}`)
                 .then(() => {

@@ -1,24 +1,24 @@
 const { Todo } = require('../models/todo');
 
-async function getTodos() {
+const getTodos = async() => {
     try {
         return await Todo.findAll();
     } catch (err) {
-        console.error('Error fetching todos in service:', err);
+        console.error(err);
         throw err;
     }
 }
 
-async function addTodo(text) {
+const addTodo = async(text) => {
     try {
         return await Todo.create({ text });
     } catch (err) {
-        console.error('Error adding todo in service:', err);
+        console.error(err);
         throw err;
     }
 }
 
-async function updateTodo(id, text) {
+const updateTodo = async(id, text) => {
     try {
         const [updated] = await Todo.update({ text }, { where: { id } });
         if (updated) {
@@ -26,19 +26,19 @@ async function updateTodo(id, text) {
         }
         throw new Error('Todo not found');
     } catch (err) {
-        console.error('Error updating todo in service:', err);
+        console.error(err);
         throw err;
     }
 }
 
-async function deleteTodo(id) {
+const deleteTodo = async(id) => {
     try {
         const deleted = await Todo.destroy({ where: { id } });
         if (!deleted) {
             throw new Error('Todo not found');
         }
     } catch (err) {
-        console.error('Error deleting todo in service:', err);
+        console.error(err);
         throw err;
     }
 }

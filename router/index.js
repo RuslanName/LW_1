@@ -1,10 +1,10 @@
 const express = require('express');
 const index = express.Router();
-const { renderHome, addTodoHandler, updateTodoHandler, deleteTodoHandler } = require('../controllers/todoController');
+const todoController = require('../controllers/todoController');
 
-index.get('/', renderHome);
-index.post('/api/todos', addTodoHandler);
-index.put('/api/todos/:id', updateTodoHandler);
-index.delete('/api/todos/:id', deleteTodoHandler);
+index.get('/', todoController.renderHome);
+index.post('/api/todos', todoController.addTodoHandle);
+index.put('/api/todos/:id', todoController.updateTodoHandler);
+index.delete('/api/todos/:id', todoController.deleteTodoHandler);
 
 module.exports = index;

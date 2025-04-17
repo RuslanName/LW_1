@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const todoRouter = require('./router/index');
-const { sequelize } = require('./db');
+const sequelize  = require('./db');
 
 app.use(express.static('public'));
 app.use(express.json());

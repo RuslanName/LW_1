@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../db');
+const sequelize = require('../db');
 
 const Todo = sequelize.define('todos_data', {
     id: {
@@ -13,4 +13,4 @@ const Todo = sequelize.define('todos_data', {
     },
 });
 
-module.exports = { Todo };
+module.exports = Todo;
